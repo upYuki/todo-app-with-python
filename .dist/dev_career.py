@@ -4,7 +4,7 @@ menu = ["add", "view", "delete", "exit"]
 
 def showTasks():
     if not tasks:
-        print("no tasks yet")
+        print("no tasks yet \n")
         return
     for i, task in enumerate(tasks, start=1):
         print(f"{i}. {task}")
@@ -20,7 +20,7 @@ while True:
 
     if choice == "add":
         while True:
-            task = input("input a task(press enter to stop: ")
+            task = input("input a task(press enter to stop): ")
             if task == "":
                 break
             tasks.append(task)
@@ -31,13 +31,13 @@ while True:
         showTasks()
         if not tasks:
             continue
-       
-        num = int(input("input task number to delete: "))
-        if not num.isdigit():
-         print("invalid number")
-         continue
 
-        index = num-1
+        num = input("input task number to delete: ")
+        if not num.isdigit():
+            print("invalid number")
+            continue
+
+        index = int(num)-1
         if index < 0 or index > len(tasks):
             print("task number is out of range")
             continue
